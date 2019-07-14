@@ -46,25 +46,28 @@ if __name__ == "__main__":
 	if len(models) < 1:
 		sys.exit(10)
 	
-	# Extract the model features 
-	model_features = np.reshape(np.array(models[-1]["data"], dtype=np.dtype("f4")), (-1))
+	
 
+	## GETAUDIO5
+	dir_audio = "audios/Prueba.wav" 
 	## GETAUDIO 
-	dir_audio = "audios/Jimmy3.wav" 
-	## GETAUDIO 
-
+	
 
 	p = Process(target=extract_features, args= ( dir_audio , 0))
 	p.start()
 	p.join()
 
 	features = np.fromfile("./tmp/features.data", dtype=np.dtype("f4"))
+	os.remove("./tmp/features.data")
 
-	print(features, model_features )
+	print(len(models))
+	for i in models:
+		# Extract the model features 
+		model_features = np.reshape(np.array(i["data"], dtype=np.dtype("f4")), (-1))
 	
-	cos_score = np.dot( features ,model_features) / ( np.linalg.norm(features) * np.linalg.norm(model_features) )
+		cos_score = np.dot( features ,model_features) / ( np.linalg.norm(features) * np.linalg.norm(model_features) )
 
-	print(cos_score)
+		print(cos_score)
 
 	
 

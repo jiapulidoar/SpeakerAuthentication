@@ -60,7 +60,7 @@ if __name__ == "__main__":
 	# Extract the features to the model 
 
 	## GETAUDIO 
-	dir_audio = "audios/Jimmy2.wav" 
+	dir_audio = "audios/Yennylong1.wav" 
 	## GETAUDIO 
 
 	p = Process(target=extract_features, args= ( dir_audio , 0))
@@ -68,22 +68,19 @@ if __name__ == "__main__":
 	p.join()
 
 	features = np.fromfile("./tmp/features.data", dtype=np.dtype("f4"))
+	os.remove("./tmp/features.data")
 
 	#Insert the model to the metadata
 
-	if len(encodings) < 1:
-		insert_model["data"].append(features.tolist())
-		
-	else:
-		previous_data = encodings[-1]["data"]
-		avg_data = np.mean([ features ,previous_data], axis=0)
-		insert_model["data"].append(avg_data.tolist())
-		
+	
+	insert_model["data"].append(features.tolist())
+	
 	encodings.append(insert_model)
 	
 	# Save the new encodings to disk
 	with open(enc_file, "w") as datafile:
 		json.dump(encodings, datafile)
+
 
 	# Give let the user know how it went
 	print("""Scan complete
