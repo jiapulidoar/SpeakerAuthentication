@@ -15,7 +15,6 @@ uid = os.getuid()
 user = builtins.howdy_user
 uid = builtins.howdy_uid
 
-os.system('rm -rf /home/'+user+'/.howdy')
 gpg = gnupg.GPG(gnupghome='/home/'+user+'/.howdy')
 
 public_keys = gpg.list_keys() 

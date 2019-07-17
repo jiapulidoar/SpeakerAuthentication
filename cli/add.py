@@ -23,7 +23,9 @@ user = builtins.howdy_user
 uid = builtins.howdy_uid
 
 ### Directory of gnupg 
-import generate.key
+
+if not os.path.exists("/home/"+user+"/.howdy"):
+	import generate.key
 gpg = gnupg.GPG(gnupghome='/home/'+user+'/.howdy')
 
 
