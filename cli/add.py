@@ -12,6 +12,7 @@ import gnupg
 import subprocess
 from subprocess import call 
 from multiprocessing import Process
+from getaudio import *
 
 path = os.path.abspath(__file__ +"/../") # get the absolute  current path 
 
@@ -21,6 +22,7 @@ def extract_features( i , count ):
 
 user = builtins.howdy_user
 uid = builtins.howdy_uid
+audio = builtins.howdy_audio
 
 ### Directory of gnupg 
 
@@ -87,9 +89,14 @@ def add():
 	# Extract the features to the model 
 
 	## GETAUDIO 
-	dir_audio = "audios/Jesus1.wav" 
+
+	if len(audio) > 0:
+		dir_audio = audio
+	else: 
+		dir_audio = record()
 	## GETAUDIO 
 
+	print(dir_audio)
 	p = Process(target=extract_features, args= ( dir_audio , 0))
 	p.start()
 	p.join()

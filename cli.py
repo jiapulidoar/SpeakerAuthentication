@@ -52,6 +52,11 @@ parser.add_argument("-U", "--user",
                     default=user,
                     help="Set the user account to use.")
 
+# Add the user flag
+parser.add_argument("-A", "--audio",
+                    default="",
+                    help="Set the audio file.")
+
 # Add the uid flag
 parser.add_argument("-I", "--uid",
                     default=uid,
@@ -81,6 +86,7 @@ args = parser.parse_args()
 builtins.howdy_args = args
 builtins.howdy_user = args.user
 builtins.howdy_uid = args.uid
+builtins.howdy_audio = args.audio
 
 # Check if we have rootish rights
 # This is this far down the file so running the command for help is always possible
