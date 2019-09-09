@@ -4,16 +4,16 @@ The project is currently in development.
 
 # Speaker Authentication for Linux 
 
-Speaker Authentication for Linux provides Speaker-voice authentication for Linux. Use microphone in combination with speaker verification and identification to prove who you are. 
+Speaker Authentication for Linux provides Speaker-Voice authentication for Linux. Use microphone in combination with Speaker Verification and Identification (Deep Learning) to prove who you are. 
 
 Using the central authentication system (PAM), this works everywhere you would otherwise need your password: Login, lock screen, sudo, su, etc.
 
 # Installation 
 
-'''sh 
+```sh 
  $ git clone https://github.com/jiapulidoar/SpeakerAuthentication.git
  $ cd FuturePresentation
-'''
+```
 
 # CLI
 
@@ -21,9 +21,9 @@ The installer adds a cli command to manage face models for the current user. Use
 
 Usage:
 
-'''sh 
+```sh 
 cli.py [-U user] [-y] command [argument] 
-'''
+```
 
 | Command   | Description                                   |
 |-----------|-----------------------------------------------|
