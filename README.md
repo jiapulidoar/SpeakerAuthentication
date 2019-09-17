@@ -35,5 +35,4 @@ cli.py [-U user] [-y] command [argument]
 
 
 ## Model 
-
-[plot_pred.png](model)
+![model](Model/plot_pred.png "Model")
