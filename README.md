@@ -32,3 +32,8 @@ cli.py [-U user] [-y] command [argument]
 | `list`    | List all saved speaker models for an user        |
 | `remove`  | Remove a specific model for an user           |
 | `test`    | Test the microphone and recognition methods       |
+
+
+## Model 
+
+[plot_pred.png](model)
