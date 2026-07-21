@@ -13,7 +13,7 @@ config = ConfigParser.ConfigParser()
 config.read(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
 
 def doAuth(pamh):
-	"""Start authentication in a seperate process"""
+	"""Start authentication in a separate process"""
 
 	# Abort is Howdy is disabled
 	#if config.get("core", "disabled") == "true":
